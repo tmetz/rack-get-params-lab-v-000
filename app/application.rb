@@ -19,7 +19,7 @@ class Application
         resp.write "#{item}\n"
     elsif req.path.match(/add/)
       search_term = req.params["item"]
-      if search_term in @@items
+      if @@items.include?(search_term)
         @@cart << search_term
       else
         resp.write "Sorry, that item is not available"
